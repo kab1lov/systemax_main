@@ -2,8 +2,9 @@ import os
 import uuid
 
 from ckeditor.fields import RichTextField
-from django.core.validators import RegexValidator
-from django.db.models import Model, CharField, ImageField, ForeignKey, CASCADE, SlugField, DateTimeField, EmailField
+from django.core.validators import RegexValidator, URLValidator
+from django.db.models import (CASCADE, CharField, DateTimeField, EmailField,
+                              ForeignKey, ImageField, Model, SlugField, URLField)
 from django.utils.text import slugify
 
 
@@ -59,25 +60,30 @@ class BlogModel(Model):
     title = CharField(max_length=255)
     image = ImageField(upload_to=image_filename)
     text = RichTextField()
-    blog_inner = ForeignKey(BlogInnerTextModel, CASCADE, related_name='blogs')
+    blog_inner = ForeignKey(BlogInnerTextModel, CASCADE, related_name="blogs")
     created_at = DateTimeField(auto_now_add=True)
     slug = SlugField(max_length=255, unique=True)
 
-    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        # if not self.slug:
-        self.slug = slugify(self.title)
-        while BlogModel.objects.filter(slug=self.slug).exists():
-            slug = BlogModel.objects.filter(slug=self.slug).first().slug
-            if '-' in slug:
-                try:
-                    if slug.split('-')[-1] in self.title:
-                        self.slug += '-1'
-                    else:
-                        self.slug = '-'.join(slug.split('-')[:-1]) + '-' + str(int(slug.split('-')[-1]) + 1)
-                except:
-                    self.slug = slug + '-1'
+    def save(
+            self, force_insert=False, force_update=False, using=None, update_fields=None
+    ):
+        if not self.pk:  # noqa
+            self.slug = slugify(self.title)
+        else:
+            old_instance = BlogModel.objects.get(pk=self.pk)
+            if self.title != old_instance.title:
+                self.slug = slugify(self.title)
+
+        while BlogModel.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
+            if "-" in self.slug:
+                parts = self.slug.split("-")
+                if parts[-1].isdigit():
+                    count = int(parts[-1])
+                    self.slug = "-".join(parts[:-1]) + "-" + str(count + 1)
+                else:
+                    self.slug += "-1"
             else:
-                self.slug += '-1'
+                self.slug += "-1"
 
         super().save(force_insert, force_update, using, update_fields)
 
@@ -119,39 +125,51 @@ class Contact(Model):
     )
 
 
-class ServicesInnerTextModel(Model):
-    title = CharField(max_length=255)
-
-
 class ServiceModel(Model):
+    title = CharField(max_length=255)
+    sub_title = CharField(max_length=255)
     main_image = ImageField(upload_to=image_filename)
-    text = RichTextField()
-    service_inner = ForeignKey(ServicesInnerTextModel, CASCADE, related_name="services")
+    up_text = RichTextField()
+    down_text = RichTextField()
     created_at = DateTimeField(auto_now_add=True)
     slug = SlugField(max_length=255, unique=True)
 
-    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        # if not self.slug:
-        self.slug = slugify(self.title)
-        while BlogModel.objects.filter(slug=self.slug).exists():
-            slug = BlogModel.objects.filter(slug=self.slug).first().slug
-            if '-' in slug:
-                try:
-                    if slug.split('-')[-1] in self.title:
-                        self.slug += '-1'
-                    else:
-                        self.slug = '-'.join(slug.split('-')[:-1]) + '-' + str(int(slug.split('-')[-1]) + 1)
-                except:
-                    self.slug = slug + '-1'
+    def save(
+            self, force_insert=False, force_update=False, using=None, update_fields=None
+    ):
+        if not self.pk:  # noqa
+            self.slug = slugify(self.title)
+        else:
+            old_instance = ServiceModel.objects.get(pk=self.pk)
+            if self.title != old_instance.title:
+                self.slug = slugify(self.title)
+
+        while ServiceModel.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
+            if "-" in self.slug:
+                parts = self.slug.split("-")
+                if parts[-1].isdigit():
+                    count = int(parts[-1])
+                    self.slug = "-".join(parts[:-1]) + "-" + str(count + 1)
+                else:
+                    self.slug += "-1"
             else:
-                self.slug += '-1'
+                self.slug += "-1"
 
         super().save(force_insert, force_update, using, update_fields)
 
 
-class ServiceImageModel(ImageDeletionMixin,Model):
+class ServiceImageModel(ImageDeletionMixin, Model):
     image = ImageField(upload_to=image_filename)
     service = ForeignKey(ServiceModel, CASCADE, related_name="images")
 
 
+class About(Model):
+    title = CharField(max_length=255)
+    text = RichTextField()
+    link = URLField(validators=(URLValidator,), null=True, blank=True)
 
+
+class SocialsModel(Model):
+    facebook = URLField(validators=(URLValidator,), null=True, blank=True)
+    instagram = URLField(validators=(URLValidator,), null=True, blank=True)
+    telegram = URLField(validators=(URLValidator,), null=True, blank=True)

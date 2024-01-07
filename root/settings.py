@@ -27,7 +27,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    "baton",
+    'jazzmin',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -35,12 +35,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "apps",
-    'ckeditor',
-    "baton.autodiscover",
+    "ckeditor",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -126,3 +126,83 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")  # noqa
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+
+CKEDITOR_CONFIGS = {
+    'default':
+        {
+            'toolbar': 'full',
+            'width': 'auto',
+            'extraPlugins': ','.join([
+                'codesnippet',
+            ]),
+        },
+}
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Hologorod Admin",
+
+    "site_header": "Hologorod",
+
+    "site_brand": "Hologorod",
+
+    "site_logo": "/project/Image/hologorod1 1.png",
+
+    "login_logo": '/project/Image/hologorod-logo.png',
+
+    "login_logo_dark": '/project/Image/hologorod-logo.png',
+
+    "site_logo_classes": "img-square",
+
+    "site_icon": '/project/Image/hologorod-logo.png',
+
+    "welcome_sign": "Welcome to the Hologorod Admin",
+
+    "copyright": "Abduganiev technology",
+
+    "search_model": [
+        "apps.IndexBanner",
+        "apps.IndexAbout",
+        "apps.Contact",
+        "apps.Content",
+    ],
+
+    "user_avatar": None,
+
+    "topmenu_links": [
+
+        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
+
+        {"name": "Support", "url": "https://abduganiev.uz/", "new_window": True},
+
+        {"model": "auth.User"},
+
+    ],
+    "usermenu_links": [
+        {"name": "Support", "url": "https://abduganiev.uz/", "new_window": True},
+    ],
+    "show_sidebar": True,
+    "navigation_expanded": True,
+
+    "hide_apps": [],
+    "hide_models": ["auth.Group", "auth.User"],
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+    "related_modal_active": False,
+
+    "custom_css": None,
+    "custom_js": None,
+    "use_google_fonts_cdn": True,
+    "show_ui_builder": False,
+
+    "changeform_format": "horizontal_tabs",
+    "language_chooser": True,
+}
