@@ -1,0 +1,388 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <!-- aaaa -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>KEBZU</title>
+        <link href="{% static 'project/plugins/aos/aos.css' %}" rel="stylesheet"/>
+        <link rel="stylesheet" href="{% static 'project/plugins/flowbite/flowbite.css' %}"/>
+
+        <link rel="stylesheet" href="{% static 'project/plugins/swiper/swiper.css' %}"/>
+        <link href="{% static 'project/plugins/remixicon/remixicon.css' %}" rel="stylesheet"/>
+
+        <script src="{% static 'project/plugins/tailwind/tailwind.js' %}"></script>
+        <script src="{% static 'project/plugins/tailwind/tailwind.config' %}"></script>
+        <link rel="stylesheet" href="{% static 'project/css/style.css' %}"/>
+    </head>
+
+    <body>
+        <div class="overflow-hidden wrapper">
+            <div class="loader-page">
+                <img class="w-24 h-24" src="{% static 'project/image/Logo.png' %}" alt="">
+                </div>
+                <header id="header" class="relative">
+
+                    <nav id="nav" class="fixed   py-2.5 rounded-b top-0 left-0 w-full z-[9999] bg-[#0F172A]">
+                        <div class="container flex flex-wrap items-center justify-between mx-auto">
+                            <a href="./index.html" class="flex items-center">
+                                <img src="{% static 'project/image/Logo.png' %}" class="mr-3 h-14 sm:h-20" alt="KEBZU">
+                                </a>
+                                <div class="flex items-center md:order-2">
+                                    <button type="button" data-dropdown-toggle="language-dropdown-menu"
+                                        class="inline-flex items-center justify-center p-2 text-sm text-white rounded cursor-pointer hover:bg-gray-800 ">
+                                        <svg class="w-5 h-5 mr-2 rounded-full" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3900 3900">
+                                            <path fill="#b22234" d="M0 0h7410v3900H0z"></path>
+                                            <path d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0" stroke="#fff"
+                                                stroke-width="300">
+                                            </path>
+                                            <path fill="#3c3b6e" d="M0 0h2964v2100H0z"></path>
+                                            <g fill="#fff">
+                                                <g id="d">
+                                                    <g id="c">
+                                                        <g id="e">
+                                                            <g id="b">
+                                                                <path id="a"
+                                                                    d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"></path>
+                                                                <use xlink:href="#a" y="420"></use>
+                                                                <use xlink:href="#a" y="840"></use>
+                                                                <use xlink:href="#a" y="1260"></use>
+                                                            </g>
+                                                            <use xlink:href="#a" y="1680"></use>
+                                                        </g>
+                                                        <use xlink:href="#b" x="247" y="210"></use>
+                                                    </g>
+                                                    <use xlink:href="#c" x="494"></use>
+                                                </g>
+                                                <use xlink:href="#d" x="988"></use>
+                                                <use xlink:href="#c" x="1976"></use>
+                                                <use xlink:href="#e" x="2470"></use>
+                                            </g>
+                                        </svg>
+                                        English (US)
+                                    </button>
+                                    <!-- Dropdown -->
+                                    <div class="hidden z-50 my-4 text-base list-none bg-[#0F172A] rounded divide-y divide-gray-100 shadow "
+                                        id="language-dropdown-menu" data-popper-reference-hidden="" data-popper-escaped=""
+                                        data-popper-placement="bottom"
+                                        style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 10px);">
+                                        <ul class="py-1" role="none">
+                                            <li>
+                                                <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-gray-800 "
+                                                    role="menuitem">
+                                                    <div class="inline-flex items-center">
+                                                        <svg aria-hidden="true" class="h-3.5 w-3.5 rounded-full mr-2"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            id="flag-icon-css-us" viewBox="0 0 512 512">
+                                                            <g fill-rule="evenodd">
+                                                                <g stroke-width="1pt">
+                                                                    <path fill="#bd3d44"
+                                                                        d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+                                                                        transform="scale(3.9385)"></path>
+                                                                    <path fill="#fff"
+                                                                        d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+                                                                        transform="scale(3.9385)"></path>
+                                                                </g>
+                                                                <path fill="#192f5d" d="M0 0h98.8v70H0z"
+                                                                    transform="scale(3.9385)"></path>
+                                                                <path fill="#fff"
+                                                                    d="M8.2 3l1 2.8H12L9.7 7.5l.9 2.7-2.4-1.7L6 10.2l.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7L74 8.5l-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 7.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 24.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 21.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 38.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 35.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 52.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 49.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 66.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 63.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9z"
+                                                                    transform="scale(3.9385)"></path>
+                                                            </g>
+                                                        </svg>
+                                                        English (US)
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-gray-800 "
+                                                    role="menuitem">
+                                                    <div class="inline-flex items-center">
+
+                                                        <img class="h-3.5 w-3.5 rounded-full mr-2"
+                                                            src="{% static 'project/image/header/Язык.png' %}" alt="">
+                                                            Rus
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                        <button data-collapse-toggle="mobile-menu-language-select" type="button"
+                                            class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                                            aria-controls="mobile-menu-language-select" aria-expanded="false">
+                                            <span class="sr-only">Open main menu</span>
+                                            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+                                        id="mobile-menu-language-select">
+                                        <ul
+                                            class="flex flex-col p-4 mt-4  rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:text-[18px]">
+                                            <li>
+                                                <a href="./index.html"
+                                                    class="block py-4 pl-3 pr-4 text-white capitalize duration-200 border-b border-transparent hover:border-white md:bg-transparent md:p-0 md:py-3 "
+                                                    >главная</a>
+                                            </li>
+                                            <li>
+                                                <a href="./about.html"
+                                                    aria-current="page"
+                                                    class="block py-4 pl-3 pr-4 text-white capitalize duration-200 border-b border-transparent hover:border-white md:bg-transparent md:p-0 md:py-3 "
+                                                    >о Нас</a>
+                                            </li>
+                                            <li>
+                                                <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+                                                    class="flex items-center justify-between block py-4 pl-3 pr-4 text-white capitalize duration-200 border-b border-transparent hover:border-white md:bg-transparent md:p-0 md:py-3">
+                                                    Услуги
+                                                    <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd"
+                                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </button>
+                                                <!-- Dropdown menu -->
+                                                <div id="dropdownNavbar"
+                                                    class="hidden z-10 w-44 font-normal bg-[#0F172A] text-white rounded divide-y  shadow ">
+                                                    <ul class="py-1 text-sm" aria-labelledby="dropdownLargeButton">
+                                                        <li>
+                                                            <a href="./allFirma.html" class="block px-4 py-2 hover:bg-gray-800">Экспедирование
+                                                                грузов</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="./allFirma.html" class="block px-4 py-2 hover:bg-gray-800">Сопровождение
+                                                                ВЭД</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="block px-4 py-2 hover:bg-gray-800">Складское обслуживание</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="block px-4 py-2 hover:bg-gray-800">Автоперевозки сборных
+                                                                грузов</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="block px-4 py-2 hover:bg-gray-800">Железнодорожные и
+                                                                контейнерные перевозки</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="block px-4 py-2 hover:bg-gray-800">Автомобильные
+                                                                перевозки</a>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+                                                <a href="./allFirma.html"
+                                                    class=""
+                                                    ></a>
+                                            </li>
+                                            <li>
+                                                <a href="./blog.html"
+                                                    class="block py-4 pl-3 pr-4 text-white capitalize duration-200 border-b border-transparent hover:border-white md:bg-transparent md:p-0 md:py-3 "
+                                                    >Блог</a>
+                                            </li>
+                                            <li>
+                                                <a href="./contact.html"
+                                                    class="block py-4 pl-3 pr-4 text-white capitalize duration-200 border-b border-transparent hover:border-white md:bg-transparent md:p-0 md:py-3 "
+                                                    >Контакты</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+
+                            <div
+                                class="header__content bg-[url('./project/image/2.jpg')] bg-fixed md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover"
+                                >
+                                <div class="w-full h-full ">
+                                    <div class="container mx-auto text-white cursor-pointer">
+                                        <h2 class="text-3xl md:text-[45px] font-bold mb-3">Контакты </h2>
+                                        <h3 class="text-lg font-semibold md:text-2xl">
+                                            <a href="./index.html">Главная</a> /
+                                            <span class="">
+                                                <a href="./contact.html">Контакты</a></span
+                                            >
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+                        <main class="blog">
+                            <!-- section contact-page -->
+
+                            <section class="py-[45px] md:py-[90px] contact-page">
+                                <div class="container mx-auto">
+                                    <div class="grid grid-cols-1 md:grid-cols-3">
+                                        <div class="col-span-1">
+                                            <div class="flex items-center py-6 text-white px-7 bg-slate-900">
+                                                <i class="w-5 mr-4 ri-map-pin-2-line"></i>
+                                                <h3 class="text-base section-title ">Локации</h3>
+                                            </div>
+                                            <div class="">
+                                                <div class="px-4 py-4 bg-white border border-gray-300 md:px-7 md:py-7">
+                                                    <h3 class="mb-4 text-xl font-semibold uppercase text-slate-900">kebzU</h3>
+                                                    <a href="#" class="flex mb-2.5">
+                                                        <i class="mr-4 text-xl ri-map-pin-line text-slate-900"></i>
+                                                        <p class="text-base text-gray-500">Ташкент, Улица Ахмеда Дониша <br
+                                                            class="hidden md:block">
+                                                            Юнусабад 11</p>
+                                                    </a>
+                                                    <a href="#" class="flex items-center mb-4">
+                                                        <i class="w-5 mr-4 text-xl ri-phone-line"></i>
+                                                        <p class="text-base text-gray-500">71 200-15-15</p>
+                                                    </a>
+                                                    <a href="#" class="flex mb-2.5">
+                                                        <i class="w-5 mr-4 text-xl ri-mail-line"></i>
+                                                        <p class="text-base text-gray-500">kebzU@gmail.com</p>
+                                                    </a>
+                                                </div>
+                                                <div class="px-4 py-4 bg-white border border-gray-300 md:px-7 md:py-7">
+                                                    <h3 class="mb-4 text-xl font-semibold uppercase text-slate-900">kebzU</h3>
+                                                    <a href="#" class="flex mb-2.5">
+                                                        <i class="w-5 mr-4 ri-map-pin-line text-slate-900"></i>
+                                                        <p class="text-base text-gray-500">Ташкент, Улица Ахмеда Дониша <br
+                                                            class="hidden md:block">
+                                                            Юнусабад 11</p>
+                                                    </a>
+                                                    <a href="#" class="flex items-center mb-4">
+                                                        <i class="w-5 mr-4 ri-phone-line"></i>
+                                                        <p class="text-base text-gray-500">71 200-15-15</p>
+                                                    </a>
+                                                    <a href="#" class="flex mb-2.5">
+                                                        <i class="w-5 mr-4 ri-mail-line"></i>
+                                                        <p class="text-base text-gray-500">kebzU@gmail.com</p>
+                                                    </a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-span-2 md:h-auto">
+                                            <iframe class="w-full h-full"
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d374.3088621886147!2d69.27461296273704!3d41.363852815684176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8cc7f765973b%3A0x8445ca73c1d7b35f!2sShifo%20Nur!5e0!3m2!1sru!2s!4v1665565756646!5m2!1sru!2s"
+                                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- section contact-page -->
+
+
+                        </main>
+
+
+                        <footer class=" bg-slate-900 md:pt-[60px] pt-7 pb-5 relative bg-[#0F172A]">
+                            <a href="#header"
+                                class="bg-white scroll-smooth py-2 px-3 rounded-full flex justify-center items-center inline-flex absolute right-8 top-[60px] text-white">
+                                <i class="text-3xl ri-arrow-up-s-line text-currentColor"></i>
+                            </a>
+                            <div class="container mx-auto">
+                                <div class="flex flex-col md:flex-row md:justify-between">
+                                    <div class="mb-6 md:mb-0">
+                                        <a href="#" class="flex items-center">
+                                            <img src="{% static 'project/image/logo.png' %}" class="h-24 mr-3" alt="AMIRAN">
+                                            </a>
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-8 sm:w-full md:w-3/4 sm:grid-cols-3">
+                                            <div class="col-span-2 sm:col-span-1">
+                                                <h2 class="mb-6 text-sm font-semibold text-white uppercase ">Услуги</h2>
+                                                <ul class="text-white ">
+                                                    <li class="mb-2.5">
+                                                        <a href="#" class="hover:underline">Экспедирование грузов</a>
+                                                    </li>
+                                                    <li class="mb-2.5">
+                                                        <a href="#" class="hover:underline">Сопровождение ВЭД</a>
+                                                    </li>
+                                                    <li class="mb-2.5">
+                                                        <a href="#" class="hover:underline">Складское обслуживание</a>
+                                                    </li>
+                                                    <li class="mb-2.5">
+                                                        <a href="#" class="hover:underline">Автоперевозки сборных грузов</a>
+                                                    </li>
+                                                    <li class="mb-2.5">
+                                                        <a href="#" class="hover:underline">Железнодорожные и контейнерные перевозки</a>
+                                                    </li>
+                                                    <li class="mb-2.5">
+                                                        <a href="#" class="hover:underline">Автомобильные перевозки</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div>
+                                                <h2 class="mb-6 text-sm font-semibold text-white uppercase ">Страницы</h2>
+                                                <ul class="text-white">
+                                                    <li class="mb-2.5">
+                                                        <a href="./about.html" class="hover:underline">О нас</a>
+                                                    </li>
+                                                    <li class="mb-2.5">
+                                                        <a href="./allFirma.html" class="hover:underline">Фирмы</a>
+                                                    </li>
+                                                    <li class="mb-2.5 ">
+                                                        <a href="./blog.html" class="hover:underline">Блог</a>
+                                                    </li>
+                                                    <li class="mb-2.5 ">
+                                                        <a href="./contact.html" class="hover:underline">Контакты</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h2 class="mb-6 text-sm font-semibold text-white uppercase ">Соц.сети</h2>
+                                                <ul class="text-white">
+                                                    <li class="mb-2.5">
+                                                        <a href="#" class="hover:underline ">Facebook</a>
+                                                    </li>
+                                                    <li class="mb-2.5">
+                                                        <a href="#" class="hover:underline">Instagram</a>
+                                                    </li>
+                                                    <li class="mb-2.5">
+                                                        <a href="#" class="hover:underline">Telegram</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8">
+
+                                </div>
+                                <div class="container mx-auto">
+                                    <div class="text-white sm:flex sm:items-center sm:justify-between">
+                                        <span class="text-sm sm:text-center ">© 2022 <a href="#" class="hover:underline">kebzU</a> все
+                                            права защищены
+                                        </span>
+                                        <div class="flex items-center sm:text-center">
+                                            <span class="mr-2 text-sm"> Создания сайта Веб студия
+                                            </span>
+                                            <a href="#"
+                                                class="hover:underline"><img class="w-20 h-8" src="{% static 'project/image/MT.png' %}" alt="">
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </footer>
+
+
+                            </div>
+
+
+                            <script src="{% static 'project/plugins/swiper/swipperJsBuld.js' %}"></script>
+                            <script src="{% static 'project/plugins/flowbite/flowbite.js' %}"></script>
+                            <script src="{% static 'project/js/swiper.js' %}"></script>
+                            <script src="{% static 'project/plugins/aos/aos.js' %}"></script>
+                            <script>
+                                AOS.init();
+                            </script>
+                            <script src="{% static 'project/js/script.js' %}"></script>
+                        </body>
+
+                    </html>
