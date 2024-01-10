@@ -32,7 +32,7 @@
 
         <nav id="nav" class="fixed   py-2.5 rounded-b top-0 left-0 w-full z-[9999] bg-[#0F172A]">
             <div class="container flex flex-wrap items-center justify-between mx-auto">
-                <a href="./index.html" class="flex items-center">
+                <a href="{% url 'index' %}" class="flex items-center">
                     <img src="{% static 'project/image/Logo.png' %}" class="mr-3 h-14 sm:h-20" alt="KEBZU">
                 </a>
                 <div class="flex items-center md:order-2">
@@ -135,12 +135,12 @@
                     <ul
                             class="flex flex-col p-4 mt-4  rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:text-[18px]">
                         <li>
-                            <a href="./index.html"
+                            <a href="{% url 'index' %}"
                                class="block py-4 pl-3 pr-4 text-white capitalize duration-200 border-b border-transparent hover:border-white md:bg-transparent md:p-0 md:py-3 "
                             >главная</a>
                         </li>
                         <li>
-                            <a href="./about.html"
+                            <a href="{% url 'about' %}"
                                aria-current="page"
                                class="block py-4 pl-3 pr-4 text-white capitalize duration-200 border-b border-transparent hover:border-white md:bg-transparent md:p-0 md:py-3 "
                             >о Нас</a>
@@ -191,12 +191,12 @@
                             ></a>
                         </li>
                         <li>
-                            <a href="./blog.html"
+                            <a href="{% url 'blog' %}"
                                class="block py-4 pl-3 pr-4 text-white capitalize duration-200 border-b border-transparent hover:border-white md:bg-transparent md:p-0 md:py-3 "
                             >Блог</a>
                         </li>
                         <li>
-                            <a href="./contact.html"
+                            <a href="{% url 'contact' %}"
                                class="block py-4 pl-3 pr-4 text-white capitalize duration-200 border-b border-transparent hover:border-white md:bg-transparent md:p-0 md:py-3 "
                             >Контакты</a>
                         </li>
@@ -211,9 +211,9 @@
                 <div data-aos="fade-right" data-aos-delay="100" class="container mx-auto text-white cursor-pointer">
                     <h2 class="text-3xl md:text-[45px] font-extrabold capitalize mb-3"> Экспедирование грузов</h2>
                     <h3 class="text-lg font-light md:text-xl">
-                        <a href="./index.html">Главная</a> /
+                        <a href="{% url 'index' %}">Главная</a> /
                         <span class="#">
-                <a href="./about.html"> Экспедирование грузов</a></span>
+                <a href="{% url 'about' %}"> Экспедирование грузов</a></span>
                     </h3>
                 </div>
             </div>
@@ -342,16 +342,16 @@
                         <h2 class="mb-6 text-sm font-semibold text-white uppercase ">Страницы</h2>
                         <ul class="text-white">
                             <li class="mb-2.5">
-                                <a href="./about.html" class="hover:underline">О нас</a>
+                                <a href="{% url 'about' %}" class="hover:underline">О нас</a>
                             </li>
                             <li class="mb-2.5">
-                                <a href="./allFirma.html" class="hover:underline">Фирмы</a>
+                                <a href="{% url 'all_farm' %}" class="hover:underline">Фирмы</a>
                             </li>
                             <li class="mb-2.5 ">
-                                <a href="./blog.html" class="hover:underline">Блог</a>
+                                <a href="{% url 'blog' %}" class="hover:underline">Блог</a>
                             </li>
                             <li class="mb-2.5 ">
-                                <a href="./contact.html" class="hover:underline">Контакты</a>
+                                <a href="{% url 'contact' %}" class="hover:underline">Контакты</a>
                             </li>
                         </ul>
                     </div>

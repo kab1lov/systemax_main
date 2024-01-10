@@ -143,25 +143,25 @@ CKEDITOR_CONFIGS = {
 }
 
 JAZZMIN_SETTINGS = {
-    "site_title": "Hologorod Admin",
+    "site_title": "Systemax Admin",
 
-    "site_header": "Hologorod",
+    "site_header": "Systemax",
 
-    "site_brand": "Hologorod",
+    "site_brand": "Systemax",
 
-    "site_logo": "/project/Image/hologorod1 1.png",
+    "site_logo": "/project/image/Logo.png",
 
-    "login_logo": '/project/Image/hologorod-logo.png',
+    "login_logo": '/project/image/Logo.png',
 
-    "login_logo_dark": '/project/Image/hologorod-logo.png',
+    "login_logo_dark": '/project/image/Logo.png',
 
     "site_logo_classes": "img-square",
 
-    "site_icon": '/project/Image/hologorod-logo.png',
+    "site_icon": '/project/image/Logo.png',
 
-    "welcome_sign": "Welcome to the Hologorod Admin",
+    "welcome_sign": "Welcome to the Systemaxx Admin",
 
-    "copyright": "Abduganiev technology",
+    "copyright": "Kab1lov technology",
 
     "search_model": [
         "apps.IndexBanner",
@@ -176,13 +176,13 @@ JAZZMIN_SETTINGS = {
 
         {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
 
-        {"name": "Support", "url": "https://abduganiev.uz/", "new_window": True},
+        {"name": "Support", "url": "inagamovzaynobiddn@gmail.com", "new_window": True},
 
         {"model": "auth.User"},
 
     ],
     "usermenu_links": [
-        {"name": "Support", "url": "https://abduganiev.uz/", "new_window": True},
+        {"name": "Support", "url": "inagamovzaynobiddn@gmail.com", "new_window": True},
     ],
     "show_sidebar": True,
     "navigation_expanded": True,

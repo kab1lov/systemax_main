@@ -55,8 +55,14 @@ def image_filename(instance, filename):
 class BlogInnerTextModel(Model):
     title = CharField(max_length=255)
 
+    def __str__(self):
+        return self.title
 
-class BlogModel(Model):
+    class Meta:
+        verbose_name_plural = 'Blog Inner'
+
+
+class BlogModel(ImageDeletionMixin, Model):
     title = CharField(max_length=255)
     image = ImageField(upload_to=image_filename)
     text = RichTextField()
@@ -87,15 +93,33 @@ class BlogModel(Model):
 
         super().save(force_insert, force_update, using, update_fields)
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'Blogs'
+
 
 class BlogChildModel(Model):
     text = CharField(max_length=255)
     blog = ForeignKey(BlogModel, CASCADE, related_name="children")
 
+    def __str__(self):
+        return self.text
+
+    class Meta:
+        verbose_name_plural = 'Blog Children'
+
 
 class IndexAboutModel(Model):
     title = CharField(max_length=255)
     text = RichTextField()
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'Index About'
 
 
 class StatisticsModel(Model):
@@ -104,9 +128,18 @@ class StatisticsModel(Model):
     settings = CharField(max_length=255)
     support = CharField(max_length=255)
 
+    def __str__(self):
+        return self.delivery
 
-class PartnersModel(Model):
+    class Meta:
+        verbose_name_plural = 'Statistics'
+
+
+class PartnersModel(ImageDeletionMixin, Model):
     image = ImageField(upload_to=image_filename)
+
+    class Meta:
+        verbose_name_plural = 'Partners'
 
 
 class Contact(Model):
@@ -124,8 +157,14 @@ class Contact(Model):
         validators=[phone_regex], max_length=17, blank=True, unique=True
     )
 
+    def __str__(self):
+        return self.address
 
-class ServiceModel(Model):
+    class Meta:
+        verbose_name_plural = 'Contact'
+
+
+class ServiceModel(ImageDeletionMixin, Model):
     title = CharField(max_length=255)
     sub_title = CharField(max_length=255)
     main_image = ImageField(upload_to=image_filename)
@@ -157,10 +196,19 @@ class ServiceModel(Model):
 
         super().save(force_insert, force_update, using, update_fields)
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'Services'
+
 
 class ServiceImageModel(ImageDeletionMixin, Model):
     image = ImageField(upload_to=image_filename)
     service = ForeignKey(ServiceModel, CASCADE, related_name="images")
+
+    class Meta:
+        verbose_name_plural = 'Service Images'
 
 
 class About(Model):
@@ -168,8 +216,20 @@ class About(Model):
     text = RichTextField()
     link = URLField(validators=(URLValidator,), null=True, blank=True)
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'About'
+
 
 class SocialsModel(Model):
     facebook = URLField(validators=(URLValidator,), null=True, blank=True)
     instagram = URLField(validators=(URLValidator,), null=True, blank=True)
     telegram = URLField(validators=(URLValidator,), null=True, blank=True)
+
+    def __str__(self):
+        return self.facebook
+
+    class Meta:
+        verbose_name_plural = 'Socials'
