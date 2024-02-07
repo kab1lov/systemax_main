@@ -3,8 +3,17 @@ import uuid
 
 from ckeditor.fields import RichTextField
 from django.core.validators import RegexValidator, URLValidator
-from django.db.models import (CASCADE, CharField, DateTimeField, EmailField,
-                              ForeignKey, ImageField, Model, SlugField, URLField)
+from django.db.models import (
+    CASCADE,
+    CharField,
+    DateTimeField,
+    EmailField,
+    ForeignKey,
+    ImageField,
+    Model,
+    SlugField,
+    URLField,
+)
 from django.utils.text import slugify
 
 
@@ -59,7 +68,7 @@ class BlogInnerTextModel(Model):
         return self.title
 
     class Meta:
-        verbose_name_plural = 'Blog Inner'
+        verbose_name_plural = "Blog Inner"
 
 
 class BlogModel(ImageDeletionMixin, Model):
@@ -71,7 +80,7 @@ class BlogModel(ImageDeletionMixin, Model):
     slug = SlugField(max_length=255, unique=True)
 
     def save(
-            self, force_insert=False, force_update=False, using=None, update_fields=None
+        self, force_insert=False, force_update=False, using=None, update_fields=None
     ):
         if not self.pk:  # noqa
             self.slug = slugify(self.title)
@@ -97,7 +106,7 @@ class BlogModel(ImageDeletionMixin, Model):
         return self.title
 
     class Meta:
-        verbose_name_plural = 'Blogs'
+        verbose_name_plural = "Blogs"
 
 
 class BlogChildModel(Model):
@@ -108,7 +117,7 @@ class BlogChildModel(Model):
         return self.text
 
     class Meta:
-        verbose_name_plural = 'Blog Children'
+        verbose_name_plural = "Blog Children"
 
 
 class IndexAboutModel(Model):
@@ -119,7 +128,7 @@ class IndexAboutModel(Model):
         return self.title
 
     class Meta:
-        verbose_name_plural = 'Index About'
+        verbose_name_plural = "Index About"
 
 
 class StatisticsModel(Model):
@@ -132,17 +141,17 @@ class StatisticsModel(Model):
         return self.delivery
 
     class Meta:
-        verbose_name_plural = 'Statistics'
+        verbose_name_plural = "Statistics"
 
 
 class PartnersModel(ImageDeletionMixin, Model):
     image = ImageField(upload_to=image_filename)
 
     class Meta:
-        verbose_name_plural = 'Partners'
+        verbose_name_plural = "Partners"
 
 
-class Contact(Model):
+class ContactModel(Model):
     address = CharField(max_length=255)
     map = CharField(max_length=350)
     email = EmailField(max_length=255, unique=True)
@@ -161,7 +170,7 @@ class Contact(Model):
         return self.address
 
     class Meta:
-        verbose_name_plural = 'Contact'
+        verbose_name_plural = "Contact"
 
 
 class ServiceModel(ImageDeletionMixin, Model):
@@ -174,7 +183,7 @@ class ServiceModel(ImageDeletionMixin, Model):
     slug = SlugField(max_length=255, unique=True)
 
     def save(
-            self, force_insert=False, force_update=False, using=None, update_fields=None
+        self, force_insert=False, force_update=False, using=None, update_fields=None
     ):
         if not self.pk:  # noqa
             self.slug = slugify(self.title)
@@ -200,7 +209,7 @@ class ServiceModel(ImageDeletionMixin, Model):
         return self.title
 
     class Meta:
-        verbose_name_plural = 'Services'
+        verbose_name_plural = "Services"
 
 
 class ServiceImageModel(ImageDeletionMixin, Model):
@@ -208,7 +217,7 @@ class ServiceImageModel(ImageDeletionMixin, Model):
     service = ForeignKey(ServiceModel, CASCADE, related_name="images")
 
     class Meta:
-        verbose_name_plural = 'Service Images'
+        verbose_name_plural = "Service Images"
 
 
 class About(Model):
@@ -220,7 +229,7 @@ class About(Model):
         return self.title
 
     class Meta:
-        verbose_name_plural = 'About'
+        verbose_name_plural = "About"
 
 
 class SocialsModel(Model):
@@ -232,4 +241,4 @@ class SocialsModel(Model):
         return self.facebook
 
     class Meta:
-        verbose_name_plural = 'Socials'
+        verbose_name_plural = "Socials"

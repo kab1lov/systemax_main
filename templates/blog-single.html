@@ -160,31 +160,13 @@
                             <div id="dropdownNavbar"
                                  class="hidden z-10 w-44 font-normal bg-[#0F172A] text-white rounded divide-y  shadow ">
                                 <ul class="py-1 text-sm" aria-labelledby="dropdownLargeButton">
-                                    <li>
-                                        <a href="./allFirma.html" class="block px-4 py-2 hover:bg-gray-800">Экспедирование
-                                            грузов</a>
-                                    </li>
-                                    <li>
-                                        <a href="./allFirma.html" class="block px-4 py-2 hover:bg-gray-800">Сопровождение
-                                            ВЭД</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">Складское обслуживание</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">Автоперевозки сборных
-                                            грузов</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">Железнодорожные и
-                                            контейнерные перевозки</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">Автомобильные
-                                            перевозки</a>
-                                    </li>
+                                    {% for service in services %}
+                                        <li>
+                                            <a href="#"
+                                               class="block px-4 py-2 hover:bg-gray-800">{{ service.title }}</a>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
-
                             </div>
                             <a href="./allFirma.html"
                                class=""
@@ -319,7 +301,7 @@
 
     <footer class=" bg-slate-900 md:pt-[60px] pt-7 pb-5 relative bg-[#0F172A]">
         <a href="#header"
-           class="bg-white scroll-smooth py-2 px-3 rounded-full flex justify-center items-center inline-flex absolute right-8 top-[60px]">
+           class="bg-white scroll-smooth py-2 px-3 rounded-full flex justify-center items-center inline-flex absolute right-8 top-[60px] ">
             <i class="text-3xl ri-arrow-up-s-line text-currentColor"></i>
         </a>
         <div class="container mx-auto">
@@ -333,24 +315,12 @@
                     <div class="col-span-2 sm:col-span-1">
                         <h2 class="mb-6 text-sm font-semibold text-white uppercase ">Услуги</h2>
                         <ul class="text-white ">
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Экспедирование грузов</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Сопровождение ВЭД</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Складское обслуживание</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Автоперевозки сборных грузов</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Железнодорожные и контейнерные перевозки</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Автомобильные перевозки</a>
-                            </li>
+                            {% for service in services %}
+                                <li class="mb-2.5">
+                                    <a href="#" class="hover:underline">{{ service.title }}</a>
+                                </li>
+                            {% endfor %}
+
                         </ul>
                     </div>
 
@@ -375,13 +345,13 @@
                         <h2 class="mb-6 text-sm font-semibold text-white uppercase ">Соц.сети</h2>
                         <ul class="text-white">
                             <li class="mb-2.5">
-                                <a href="#" class="hover:underline ">Facebook</a>
+                                <a href="{{ socials.facebook }}" class="hover:underline ">Facebook</a>
                             </li>
                             <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Instagram</a>
+                                <a href="{{ socials.instagram }}" class="hover:underline">Instagram</a>
                             </li>
                             <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Telegram</a>
+                                <a href="{{ socials.telegram }}" class="hover:underline">Telegram</a>
                             </li>
                         </ul>
                     </div>
@@ -393,13 +363,12 @@
         </div>
         <div class="container mx-auto">
             <div class="text-white sm:flex sm:items-center sm:justify-between">
-                                            <span class="text-sm sm:text-center ">© 2022 <a href="#"
-                                                                                            class="hover:underline">kebzU</a> все
-                                                права защищены
-                                            </span>
+          <span class="text-sm sm:text-center ">© 2022 <a href="#" class="hover:underline">kebzU</a> все
+            права защищены
+          </span>
                 <div class="flex items-center sm:text-center">
-                                                <span class="mr-2 text-sm"> Создания сайта Веб студия
-                                                </span>
+            <span class="mr-2 text-sm"> Создания сайта Веб студия 
+            </span>
                     <a href="#"
                        class="hover:underline"><img class="w-20 h-8" src="{% static 'project/image/MT.png' %}" alt="">
                     </a>

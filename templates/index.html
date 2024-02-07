@@ -155,28 +155,12 @@
                             <div id="dropdownNavbar"
                                  class="hidden z-10 w-44 font-normal bg-[#0F172A] text-white rounded divide-y  shadow ">
                                 <ul class="py-1 text-sm" aria-labelledby="dropdownLargeButton">
-                                    <li>
-                                        <a href="./allFirma.html" class="block px-4 py-2 hover:bg-gray-800">Экспедирование
-                                            грузов</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">Сопровождение ВЭД</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">Складское обслуживание</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">Автоперевозки сборных
-                                            грузов</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">Железнодорожные и
-                                            контейнерные перевозки</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">Автомобильные
-                                            перевозки</a>
-                                    </li>
+                                    {% for service in services %}
+                                        <li>
+                                            <a href="#"
+                                               class="block px-4 py-2 hover:bg-gray-800">{{ service.title }}</a>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
 
                             </div>
@@ -216,178 +200,35 @@
                     </div> -->
                 </div>
                 <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 md:gap-10 ">
+                    {% for service in services %}
+                        <div data-aos="fade-down" data-aos-delay="40"
+                             class="w-full mx-auto transition-all duration-200 duration-500 border-0 group">
+                            <a href="#" class="w-full overflow-hidden border-0">
+                                <div class="w-full max-h-45 border-0 h-[250px]  overflow-hidden">
+                                    <img class="object-cover w-full h-full duration-200 group-hover:scale-105"
+                                         src="{{ service.main_image.url }}" alt="">
 
-
-                    <div data-aos="fade-down" data-aos-delay="40"
-                         class="w-full mx-auto transition-all duration-200 duration-500 border-0 group">
-                        <a href="#" class="w-full overflow-hidden border-0">
-                            <div class="w-full max-h-45 border-0 h-[250px]  overflow-hidden">
-                                <img class="object-cover w-full h-full duration-200 group-hover:scale-105"
-                                     src="{% static 'project/image/card/card1.png' %}" alt="">
-
-                            </div>
-                            <div class="p-3 space-y-4 border-l-[7px] bg-currentColor border-gold">
-                                <h5 class="text-lg font-bold tracking-tight text-white md:text-xl card__title">
-                                    Экспедирование грузов
-                                </h5>
-                                <p class=" text-base font-normal text-white section__text text-[#DBDBDB] mt-4">
-                                    Железнодорожный транспорт – один из
-                                    самых надежных видов перевозок.
-                                <div class="flex justify-end ">
-                                    <a href="#" class="flex items-center inline-block space-x-2">
+                                </div>
+                                <div class="p-3 space-y-4 border-l-[7px] bg-currentColor border-gold">
+                                    <h5 class="text-lg font-bold tracking-tight text-white md:text-xl card__title">
+                                        {{ service.title }}
+                                    </h5>
+                                    <p class=" text-base font-normal text-white section__text text-[#DBDBDB] mt-4">
+                                        {{ service.sub_title }}
+                                    <div class="flex justify-end ">
+                                        <a href="#" class="flex items-center inline-block space-x-2">
                                                                         <span class="text-sm text-gold">
                                                                             Подробно
                                                                         </span>
-                                        <span class="px-2 py-1 rounded-full bg-gold">
+                                            <span class="px-2 py-1 rounded-full bg-gold">
                                                                             <i class=" ri-arrow-right-s-line"></i>
                                                                         </span>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div data-aos="fade-down" data-aos-delay="40"
-                         class="w-full mx-auto transition-all duration-500 border-0 group">
-                        <a href="#" class="w-full border-0">
-                            <div class="w-full max-h-45 border-0 h-[250px]  overflow-hidden">
-                                <img class="object-cover w-full h-full duration-200 group-hover:scale-105"
-                                     src="{% static 'project/image/card/card2.png' %}" alt="">
-
-                            </div>
-                            <div class="p-3 space-y-4 border-l-[7px] bg-currentColor border-gold">
-                                <h5 class="text-lg font-bold tracking-tight text-white md:text-xl card__title">
-                                    Сопровождение ВЭД
-                                </h5>
-                                <p class=" text-base font-normal text-white section__text text-[#DBDBDB] mt-4">
-                                    Железнодорожный транспорт – один из
-                                    самых надежных видов перевозок.
-                                </p>
-                                <div class="flex justify-end ">
-                                    <a href="#" class="flex items-center inline-block space-x-2">
-                                                                            <span class="text-sm text-gold">
-                                                                                Подробно
-                                                                            </span>
-                                        <span class="px-2 py-1 rounded-full bg-gold">
-                                                                                <i class=" ri-arrow-right-s-line"></i>
-                                                                            </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div data-aos="fade-down" data-aos-delay="40"
-                         class="w-full mx-auto transition-all duration-500 border-0">
-                        <a href="#" class="border-0 ">
-                            <img class="w-full max-h-45 border-0 h-[250px] object-cover"
-                                 src="{% static 'project/image/card/card3.png' %}"
-                                 alt="">
-                            <div class="p-3 space-y-4 border-l-[7px] bg-currentColor border-gold">
-                                <h5 class="text-lg font-bold tracking-tight text-white md:text-xl card__title">
-                                    Автомобильные перевозки
-                                </h5>
-                                <p class=" text-base font-normal text-white section__text text-[#DBDBDB] mt-4">
-                                    Железнодорожный транспорт – один из
-                                    самых надежных видов перевозок.
-                                </p>
-                                <div class="flex justify-end ">
-                                    <a href="#" class="flex items-center inline-block space-x-2">
-                                                                                <span class="text-sm text-gold">
-                                                                                    Подробно
-                                                                                </span>
-                                        <span class="px-2 py-1 rounded-full bg-gold">
-                                                                                    <i class="text-currentColor ri-arrow-right-s-line"></i>
-                                                                                </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div data-aos="fade-down" data-aos-delay="40"
-                         class="w-full mx-auto transition-all duration-200 duration-500 border-0 group">
-                        <a href="#" class="w-full overflow-hidden border-0">
-                            <div class="w-full max-h-45 border-0 h-[250px]  overflow-hidden">
-                                <img class="object-cover w-full h-full duration-200 group-hover:scale-105"
-                                     src="{% static 'project/image/card/card3.png' %}" alt="">
-
-                            </div>
-                            <div class="p-3 space-y-4 border-l-[7px] bg-currentColor border-gold">
-                                <h5 class="text-lg font-bold tracking-tight text-white md:text-xl card__title">
-                                    Складское обслуживание
-                                </h5>
-                                <p class=" text-base font-normal text-white section__text text-[#DBDBDB] mt-4">
-                                    Железнодорожный транспорт – один из
-                                    самых надежных видов перевозок.
-                                <div class="flex justify-end ">
-                                    <a href="#" class="flex items-center inline-block space-x-2">
-                                                                                        <span class="text-sm text-gold">
-                                                                                            Подробно
-                                                                                        </span>
-                                        <span class="px-2 py-1 rounded-full bg-gold">
-                                                                                            <i class=" ri-arrow-right-s-line"></i>
-                                                                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div data-aos="fade-down" data-aos-delay="40"
-                         class="w-full mx-auto transition-all duration-500 border-0 group">
-                        <a href="#" class="w-full border-0">
-                            <div class="w-full max-h-45 border-0 h-[250px]  overflow-hidden">
-                                <img class="object-cover w-full h-full duration-200 group-hover:scale-105"
-                                     src="{% static 'project/image/card/card3.png' %}" alt="">
-
-                            </div>
-                            <div class="p-3 space-y-4 border-l-[7px] bg-currentColor border-gold">
-                                <h5 class="text-lg font-bold tracking-tight text-white md:text-xl card__title">
-                                    Автоперевозки сборных грузов
-                                </h5>
-                                <p class=" text-base font-normal text-white section__text text-[#DBDBDB] mt-4">
-                                    Железнодорожный транспорт – один из
-                                    самых надежных видов перевозок.
-                                </p>
-                                <div class="flex justify-end ">
-                                    <a href="#" class="flex items-center inline-block space-x-2">
-                                                                                            <span class="text-sm text-gold">
-                                                                                                Подробно
-                                                                                            </span>
-                                        <span class="px-2 py-1 rounded-full bg-gold">
-                                                                                                <i class=" ri-arrow-right-s-line"></i>
-                                                                                            </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div data-aos="fade-down" data-aos-delay="40"
-                         class="w-full mx-auto transition-all duration-500 border-0 group">
-                        <a href="#" class="border-0 ">
-                            <div class="w-full max-h-45 border-0 h-[250px]  overflow-hidden">
-                                <img class="object-cover w-full h-full duration-200 group-hover:scale-105"
-                                     src="{% static 'project/image/card/card1.png' %}" alt="">
-
-                            </div>
-                            <div class="p-3 space-y-4 border-l-[7px] bg-currentColor border-gold">
-                                <h5 class="text-lg font-bold tracking-tight text-white md:text-xl card__title">
-                                    Железнодорожные и контейнерные перевозки
-                                </h5>
-                                <p class=" text-base font-normal text-white section__text text-[#DBDBDB] mt-4">
-                                    Железнодорожный транспорт – один из
-                                    самых надежных видов перевозок.
-                                </p>
-                                <div class="flex justify-end ">
-                                    <a href="#" class="flex items-center inline-block space-x-2">
-                                                                                                <span class="text-sm text-gold">
-                                                                                                    Подробно
-                                                                                                </span>
-                                        <span class="px-2 py-1 rounded-full bg-gold">
-                                                                                                    <i class="text-currentColor ri-arrow-right-s-line"></i>
-                                                                                                </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    {% endfor %}
 
                 </div>
             </div>
@@ -398,24 +239,16 @@
         <!-- section About -->
 
         <section
-                class="py-[45px] md:py-[90px] about text-white bg-[url('./project/image/about/bg-about.png')] bg-cover bg-fixed">
+                class="py-[45px] md:py-[90px] about text-white bg-[url({% static 'project/image/about/bg-about.png' %})] bg-cover bg-fixed">
             <div class="container mx-auto">
                 <div class="flex items-center justify-between mb-2 md:mb-10 section__header">
                     <h2 data-aos="fade-up" data-aos-delay="100"
-                        class="relative text-xl font-bold text-left text-white uppercase lg:text-4xl md:text-3xl section-title">
-                        о нашей компании
-                    </h2>
+                        class="relative text-xl font-bold text-left text-white uppercase lg:text-4xl md:text-3xl section-title">{{ index_about.title }}</h2>
                     <!-- <div class="section__header-line w-[80%] bg-white" data-aos="fade-left" data-aos-delay="500" >
                     </div> -->
                 </div>
                 <p data-aos="fade-down" data-aos-delay="150"
-                   class="text-lg md:text-xl text-center font-normal mb-5 md:leading-[2.2rem]">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                    with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                   class="text-lg md:text-xl text-center font-normal mb-5 md:leading-[2.2rem]">{{ index_about.text }}
                 </p>
                 <!--
                 <h2 class="text-xl font-semibold text-center text-zinc-900">
@@ -446,7 +279,7 @@
                             <i class="text-4xl text-white md:text-6xl ri-truck-line "></i>
                         </div>
                         <div class="text-2xl font-extrabold md:text-4xl text-currentColor section-title value"
-                             akhi="1000">0
+                             akhi="{{ statistics.delivery }}">0
                         </div>
                         <h3 class="mt-2 text-md center text-[#adadad] md:text-xl">
                             Complet delivery
@@ -456,7 +289,8 @@
                         <div class="px-3 py-2 mb-5 rounded-full bg-currentColor">
                             <i class="text-4xl text-white md:text-6xl ri-map-pin-user-line"></i>
                         </div>
-                        <div class="text-2xl font-bold text-currentColor md:text-4xl value section-title" akhi="1650">
+                        <div class="text-2xl font-bold text-currentColor md:text-4xl value section-title"
+                             akhi="{{ statistics.satisfied_client }}">
                             0
                         </div>
                         <h3 class="mt-2 text-md center text- md:text-xl text-[#adadad]">
@@ -467,7 +301,8 @@
                         <div class="px-3 py-2 mb-5 rounded-full bg-currentColor">
                             <i class="text-4xl text-white md:text-6xl ri-settings-5-line"></i>
                         </div>
-                        <div class="text-2xl font-bold text-currentColor md:text-4xl value section-title" akhi="2051">
+                        <div class="text-2xl font-bold text-currentColor md:text-4xl value section-title"
+                             akhi="{{ statistics.settings }}">
                             0
                         </div>
                         <h3 class="mt-2 text-md center text-[#adadad] md:text-xl">
@@ -478,7 +313,8 @@
                         <div class="px-3 py-2 mb-5 rounded-full bg-currentColor">
                             <i class="text-4xl text-white md:text-6xl ri-user-settings-line"></i>
                         </div>
-                        <div class="text-2xl font-bold text-currentColor md:text-4xl value section-title" akhi="100">0
+                        <div class="text-2xl font-bold text-currentColor md:text-4xl value section-title"
+                             akhi="{{ statistics.support }}">0
                         </div>
                         <h3 class="mt-2 text-md center text-[#adadad] md:text-xl">
                             Complet delivery
@@ -499,27 +335,16 @@
                 </div>
                 <div class="w-full swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div data-aos-delay="50" data-aos="fade-up"
-                             class="w-full h-full duration-1000 ease-in rounded-md swiper-slide">
-                            <div class="flex items-center justify-center">
-                                <img class="w-full h-[200px] object-cover "
-                                     src="{% static 'project/image/partner/Rectangle 147.png' %}" alt="">
+                        {% for partner in partners %}
+                            <div data-aos-delay="50" data-aos="fade-up"
+                                 class="w-full h-full duration-1000 ease-in rounded-md swiper-slide">
+                                <div class="flex items-center justify-center">
+                                    <img class="w-full h-[200px] object-cover "
+                                         src="{{ partner.image.url }}" alt="">
+                                </div>
                             </div>
-                        </div>
-                        <div data-aos-delay="100" data-aos="fade-up"
-                             class="w-full h-full duration-1000 ease-in rounded-md swiper-slide">
-                            <div class="flex items-center justify-center">
-                                <img class="w-full h-[200px] object-cover  "
-                                     src="{% static 'project/image/partner/Rectangle 148.png' %}" alt="">
-                            </div>
-                        </div>
-                        <div data-aos-delay="150" data-aos="fade-up"
-                             class="w-full h-full duration-1000 ease-in rounded-md swiper-slide">
-                            <div class="flex items-center justify-center">
-                                <img class="w-full h-[200px] object-cover "
-                                     src="{% static 'project/image/partner/Rectangle 149.png' %}" alt="">
-                            </div>
-                        </div>
+                        {% endfor %}
+
                     </div>
                 </div>
             </div>
@@ -530,7 +355,7 @@
         <section class="product  container-fluid bg-[#0F172A]">
             <div class="grid grid-cols-1 md:grid-cols-2 ">
                 <iframe class="w-full h-[450px]  md:h-full order-2 md:order-1 "
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5991.976095065031!2d69.26447258487183!3d41.33087326714791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8beed2933741%3A0x3dfb3b396610041!2z0JTQuNC30LDQudC9INC40L3RgtC10YDRjNC10YAg0LIg0KPQt9Cx0LXQutC40YHRgtCw0L3QtSAiQVIgRGVzaWduIg!5e0!3m2!1sru!2s!4v1664823492086!5m2!1sru!2s"
+                        src="{{ contact.map }}"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="order-1 md:order-2 border-b border-b-[#B18F62]">
                     <img class="w-full h-[280px] object-cover" src="{% static 'project/image/contact/contact.png' %}">
@@ -538,18 +363,17 @@
                         <h3 class="text-2xl uppercase font-bold text-[#B18F62] ">Наши офис</h3>
                         <div class="flex items-center my-4 ">
                             <i class="mr-4 text-2xl ri-map-pin-2-fill text-[#B18F62]"></i>
-                            <a href="#" class="text-base text-white">
-                                Узбекистан, г Ташкент, Зулфияхоним 124
+                            <a href="#" class="text-base text-white">{{ contact.address }}
                             </a>
                         </div>
                         <div class="flex flex-col md:flex-row">
                             <div class="flex items-center my-4 md:mr-10 ">
                                 <i class="mr-4 text-2xl text-[#B18F62] ri-phone-fill "></i>
                                 <a href="tel:" class="mr-4 text-base text-white">
-                                    998 (93) 541-10-11
+                                    {{ contact.phone_number1 }}
                                 </a>
                                 <a href="tel:" class="text-base text-white">
-                                    998 (93) 541-10-11
+                                    {{ contact.phone_number2 }}
                                 </a>
                             </div>
 
@@ -557,7 +381,7 @@
                         <div class="flex items-center my-4 ">
                             <i class="mr-4 text-[#B18F62] text-2xl ri-mail-fill "></i>
                             <a href="#" class="text-base text-white">
-                                info@kebzu.uz
+                                {{ contact.email }}
                             </a>
                         </div>
                     </div>
@@ -570,7 +394,7 @@
 
     <footer class=" bg-slate-900 md:pt-[60px] pt-7 pb-5 relative bg-[#0F172A]">
         <a href="#header"
-           class="bg-white scroll-smooth py-2 px-3 rounded-full flex justify-center items-center inline-flex absolute right-8 top-[60px] text-white">
+           class="bg-white scroll-smooth py-2 px-3 rounded-full flex justify-center items-center inline-flex absolute right-8 top-[60px] ">
             <i class="text-3xl ri-arrow-up-s-line text-currentColor"></i>
         </a>
         <div class="container mx-auto">
@@ -584,24 +408,12 @@
                     <div class="col-span-2 sm:col-span-1">
                         <h2 class="mb-6 text-sm font-semibold text-white uppercase ">Услуги</h2>
                         <ul class="text-white ">
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Экспедирование грузов</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Сопровождение ВЭД</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Складское обслуживание</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Автоперевозки сборных грузов</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Железнодорожные и контейнерные перевозки</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Автомобильные перевозки</a>
-                            </li>
+                            {% for service in services %}
+                                <li class="mb-2.5">
+                                    <a href="#" class="hover:underline">{{ service.title }}</a>
+                                </li>
+                            {% endfor %}
+
                         </ul>
                     </div>
 
@@ -626,13 +438,13 @@
                         <h2 class="mb-6 text-sm font-semibold text-white uppercase ">Соц.сети</h2>
                         <ul class="text-white">
                             <li class="mb-2.5">
-                                <a href="#" class="hover:underline ">Facebook</a>
+                                <a href="{{ socials.facebook }}" class="hover:underline ">Facebook</a>
                             </li>
                             <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Instagram</a>
+                                <a href="{{ socials.instagram }}" class="hover:underline">Instagram</a>
                             </li>
                             <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Telegram</a>
+                                <a href="{{ socials.telegram }}" class="hover:underline">Telegram</a>
                             </li>
                         </ul>
                     </div>
@@ -644,16 +456,14 @@
         </div>
         <div class="container mx-auto">
             <div class="text-white sm:flex sm:items-center sm:justify-between">
-                                                                                            <span class="text-sm sm:text-center ">© 2022 <a
-                                                                                                    href="#"
-                                                                                                    class="hover:underline">kebzU</a> все
-                                                                                                права защищены
-                                                                                            </span>
+          <span class="text-sm sm:text-center ">© 2022 <a href="#" class="hover:underline">kebzU</a> все
+            права защищены
+          </span>
                 <div class="flex items-center sm:text-center">
-                                                                                                <span class="mr-2 text-sm"> Создания сайта Веб студия
-                                                                                                </span>
-                    <a href="#" class="hover:underline"><img class="w-20 h-8" src="{% static 'project/image/MT.png' %}"
-                                                             alt="">
+            <span class="mr-2 text-sm"> Создания сайта Веб студия 
+            </span>
+                    <a href="#"
+                       class="hover:underline"><img class="w-20 h-8" src="{% static 'project/image/MT.png' %}" alt="">
                     </a>
                 </div>
 

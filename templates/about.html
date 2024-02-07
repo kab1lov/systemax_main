@@ -157,29 +157,12 @@
                             <div id="dropdownNavbar"
                                  class="hidden z-10 w-44 font-normal bg-[#0F172A] text-white rounded divide-y  shadow ">
                                 <ul class="py-1 text-sm" aria-labelledby="dropdownLargeButton">
-                                    <li>
-                                        <a href="./allFirma.html" class="block px-4 py-2 hover:bg-gray-800">Экспедирование
-                                            грузов</a>
-                                    </li>
-                                    <li>
-                                        <a href="./allFirma.html" class="block px-4 py-2 hover:bg-gray-800">Сопровождение
-                                            ВЭД</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">Складское обслуживание</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">Автоперевозки сборных
-                                            грузов</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">Железнодорожные и
-                                            контейнерные перевозки</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">Автомобильные
-                                            перевозки</a>
-                                    </li>
+                                    {% for service in services %}
+                                        <li>
+                                            <a href="#"
+                                               class="block px-4 py-2 hover:bg-gray-800">{{ service.title }}</a>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
 
                             </div>
@@ -204,7 +187,7 @@
 
 
         <div
-                class="header__content {% static 'bg-[urlproject' %}/image/2.jpg')] bg-fixed bg-top md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover">
+                class="header__content bg-[url({% static 'project/image/2.jpg' %})] bg-fixed md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover">
             <div class="w-full h-full ">
                 <div data-aos="fade-right" data-aos-delay="100" class="container mx-auto text-white cursor-pointer">
                     <h2 class="text-3xl md:text-[45px] font-extrabold capitalize mb-3"> о компании</h2>
@@ -225,39 +208,14 @@
             <div class="container mx-auto">
                 <div class="text-center">
                     <h2 data-aos="fade-up" data-aos-delay="50"
-                        class="mb-5 text-2xl font-semibold text-white capitalize md:text-4xl section-title">
-                        kebzU
+                        class="mb-5 text-2xl font-semibold text-white capitalize md:text-4xl section-title">{{ about.title }}
                     </h2>
                     <p data-aos="fade-up" data-aos-delay="160" class="text-base text-justify text-white">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam tempore debitis consectetur
-                        quaerat eum tenetur dignissimos, placeat cum laborum, provident numquam explicabo saepe repellat
-                        aspernatur odit aut itaque delectus? Temporibus ipsum officia maiores, perferendis ratione vel
-                        minus. Veniam doloribus similique odit repellendus impedit, assumenda at aliquid quasi facilis
-                        provident? Ab laboriosam aliquid quod repellendus provident. Odio iusto natus, placeat obcaecati
-                        voluptates est? Praesentium asperiores ipsum aliquid natus voluptatem hic, laboriosam, autem
-                        quos dolorem, accusantium accusamus eligendi dolore! Eum omnis rem possimus ipsum saepe. Ipsum
-                        dicta eius amet. Quasi numquam ex accusantium odio explicabo ducimus quisquam maxime reiciendis
-                        itaque eveniet libero illum tempore, quis similique laudantium illo neque ab autem error
-                        blanditiis? Consectetur debitis repellat quos corrupti ea libero eaque voluptatem maiores, nobis
-                        eveniet mollitia, dolorum ullam quasi! Minima, tempore sequi accusamus quidem similique ad quis
-                        mollitia hic aliquid at excepturi dignissimos commodi nesciunt sapiente nostrum cupiditate,
-                        consequuntur nam voluptatibus accusantium eaque amet tenetur eveniet in facere. Accusantium,
-                        harum. Possimus excepturi recusandae hic accusamus nihil consequuntur nam praesentium assumenda
-                        sit saepe rem cumque rerum illum distinctio laudantium a voluptatum fugit earum, vero nobis
-                        quis? Hic omnis excepturi beatae natus qui quaerat eveniet dolor deserunt similique dignissimos,
-                        autem, quibusdam eaque laborum rerum laboriosam officia voluptates vitae quasi impedit! Modi
-                        tempore nostrum fugiat praesentium aut ab cumque quo placeat id eaque eligendi sint alias
-                        deserunt est minus dolores, culpa optio. Accusamus quas molestias ratione sunt eum quam dolores
-                        corrupti repudiandae quo numquam, aut qui earum expedita consequuntur tempore beatae laborum
-                        animi, sequi illo debitis. Cum quod recusandae nihil nobis unde cupiditate quam quos ipsum
-                        accusantium totam sint praesentium, mollitia neque aliquid veritatis excepturi et autem eos
-                        similique fugit. Necessitatibus dolorem eius molestias consectetur ipsum nulla voluptas deserunt
-                        voluptatem sed impedit dolore dolores itaque eum, ducimus accusantium asperiores provident
-                        laborum hic doloribus debitis. Autem.
+                        {{ about.text }}
                     </p>
                 </div>
                 <iframe data-aos="fade-up" data-aos-delay="100" class="w-full h-[50vh] md:h-[70vh] my-10"
-                        src="https://www.youtube.com/embed/g8Qav3vIv9s" title="How are microchips made?" frameborder="0"
+                        src="{{ about.link }}" title="How are microchips made?" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
             </div>
@@ -314,24 +272,12 @@
                     <div class="col-span-2 sm:col-span-1">
                         <h2 class="mb-6 text-sm font-semibold text-white uppercase ">Услуги</h2>
                         <ul class="text-white ">
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Экспедирование грузов</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Сопровождение ВЭД</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Складское обслуживание</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Автоперевозки сборных грузов</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Железнодорожные и контейнерные перевозки</a>
-                            </li>
-                            <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Автомобильные перевозки</a>
-                            </li>
+                            {% for service in services %}
+                                <li class="mb-2.5">
+                                    <a href="#" class="hover:underline">{{ service.title }}</a>
+                                </li>
+                            {% endfor %}
+
                         </ul>
                     </div>
 
@@ -356,13 +302,13 @@
                         <h2 class="mb-6 text-sm font-semibold text-white uppercase ">Соц.сети</h2>
                         <ul class="text-white">
                             <li class="mb-2.5">
-                                <a href="#" class="hover:underline ">Facebook</a>
+                                <a href="{{ socials.facebook }}" class="hover:underline ">Facebook</a>
                             </li>
                             <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Instagram</a>
+                                <a href="{{ socials.instagram }}" class="hover:underline">Instagram</a>
                             </li>
                             <li class="mb-2.5">
-                                <a href="#" class="hover:underline">Telegram</a>
+                                <a href="{{ socials.telegram }}" class="hover:underline">Telegram</a>
                             </li>
                         </ul>
                     </div>
