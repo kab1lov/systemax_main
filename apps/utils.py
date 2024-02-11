@@ -14,10 +14,10 @@ class TitleSplitter:
             start_index = title.find(colorful_title)
             if start_index == 0:
                 start_part = colorful_title
-                end_part = title[len(colorful_title) :].strip()
+                end_part = title[len(colorful_title):].strip()
             else:
                 start_part = title[:start_index].strip()
-                end_part = title[start_index + len(colorful_title) :].strip()
+                end_part = title[start_index + len(colorful_title):].strip()
             middle_part = colorful_title
 
         return start_part, middle_part, end_part

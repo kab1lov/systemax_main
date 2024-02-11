@@ -100,14 +100,6 @@ class ContactView(View):
         return render(request, self.template_name, context)
 
 
-
-
-
-
-
-
-
-
 def set_language(request, language):
     view = None
 
